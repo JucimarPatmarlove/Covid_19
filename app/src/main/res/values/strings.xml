@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Covid_19</string>
+    <string name="ola">Olá!</string>
+    <string name="bem">Bem</string>
+    <string name="como_est_sua_sa_de_nesse_momento">Como está sua saúde nesse momento?</string>
+    <string name="bem_mal">Bem Mal</string>
+</resources>

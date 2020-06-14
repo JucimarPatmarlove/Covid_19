@@ -1,7 +1,27 @@
 <resources>
     <string name="app_name">Covid_19</string>
-    <string name="ola">Olá!</string>
-    <string name="bem">Bem</string>
-    <string name="como_est_sua_sa_de_nesse_momento">Como está sua saúde nesse momento?</string>
-    <string name="bem_mal">Bem Mal</string>
+    <string name="ola">" Hello!"</string>
+    <string name="bem">" Good"</string>
+    <string name="como_est_sua_sa_de_nesse_momento">" How is your health at the moment?"</string>
+    <string name="bem_mal">" Very bad"</string>
+    <string name="dicas_para_refor_ar_o_seu_sistema_imunit_rio">" Tips to boost your immune system"</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="todo">TODO</string>
+    <string name="degite_o_seu_peso_ex_85kg">Degite o seu peso. Ex: 85kg</string>
+    <string name="degite_sua_alutara_ex_1_77">Degite sua alutara. Ex: 1.77</string>
+    <string name="calcular">Calcular</string>
+    <string name="resultado">Resultado</string>
+    <string name="analizador_do_seu_sistema_imonologico">Analizador do seu sistema imonologico</string>
+    <string name="title_activity_lista_art_cint">ListaArtCint</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

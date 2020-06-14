@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Covid_19</string>
+    <string name="ola">Olá!</string>
+    <string name="bem">Bem</string>
+    <string name="como_est_sua_sa_de_nesse_momento">Como está sua saúde nesse momento?</string>
+    <string name="bem_mal">Bem Mal</string>
+    <string name="dicas_para_refor_ar_o_seu_sistema_imunit_rio">Dicas para reforçar o seu sistema imunitário</string>
+    <string name="todo">TODO</string>
+    <string name="degite_o_seu_peso_ex_85kg">Degite o seu peso. Ex: 85kg</string>
+    <string name="degite_sua_alutara_ex_1_77">Degite sua alutara. Ex: 1.77</string>
+    <string name="calcular">Calcular</string>
+    <string name="resultado">Resultado</string>
+    <string name="analizador_do_seu_sistema_imonologico">Analizador do seu sistema imonologico</string>
+</resources>

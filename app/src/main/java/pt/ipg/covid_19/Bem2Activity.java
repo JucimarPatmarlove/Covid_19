@@ -2,6 +2,7 @@ package pt.ipg.covid_19;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -39,6 +40,14 @@ public class Bem2Activity extends AppCompatActivity {
             textViewResultado.setText("Obesidade severa, Si =" + resultado);
 
         }
+    }
+    public void Acerca (View view){
+
+        Intent intent = new Intent(this,ListaArtigoCientifico.class);
+
+
+        startActivity(intent);
+
     }
 
 }

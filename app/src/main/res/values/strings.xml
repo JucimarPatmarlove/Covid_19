@@ -24,4 +24,9 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="dicas_de_alimenta_o">Dicas de Alimentação</string>
+    <string name="estilo_de_vida">Estilo de Vida</string>
+    <string name="voltar">Voltar</string>
+    <string name="mantenha_se_sa_davel">Mantenha-se saúdavel</string>
+    <string name="acerca_de_covid_19">Acerca de COVID-19</string>
 </resources>

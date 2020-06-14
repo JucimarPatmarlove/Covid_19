@@ -15,7 +15,7 @@ public class ListaArtigoCientifico extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_art_cint);
+        setContentView(R.layout.activity_lista_artigo_cientifico);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

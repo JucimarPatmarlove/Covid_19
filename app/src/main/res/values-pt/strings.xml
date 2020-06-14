@@ -12,4 +12,9 @@
     <string name="calcular">Calcular</string>
     <string name="resultado">Resultado</string>
     <string name="analizador_do_seu_sistema_imonologico">Analizador do seu sistema imonologico</string>
+    <string name="dicas_de_alimenta_o">Dicas de Alimentação</string>
+    <string name="estilo_de_vida">Estilo de Vida</string>
+    <string name="voltar">Voltar</string>
+    <string name="mantenha_se_sa_davel">Mantenha-se saúdavel</string>
+    <string name="acerca_de_covid_19">Acerca de COVID-19</string>
 </resources>

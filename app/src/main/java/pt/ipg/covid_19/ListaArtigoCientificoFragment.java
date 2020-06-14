@@ -17,18 +17,18 @@ public class ListaArtigoCientificoFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_listaArtCint, container, false);
+        return inflater.inflate(R.layout.fragment_lista_artigo_cientifico, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
+      /*  view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(ListaArtigoCientificoFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
-        });
+        });*/
     }
 }

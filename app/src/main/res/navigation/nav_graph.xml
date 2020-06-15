@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_adicionar_artigo_cientifico">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            android:id="@+id/action_NovoArtigoCientifico_to_ListaArtigoCientifico"
             app:destination="@id/ListaArtigoCientificoFragment" />
     </fragment>
 </navigation>

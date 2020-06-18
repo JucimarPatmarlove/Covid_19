@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_lista_artigo_cientifico">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            android:id="@+id/action_Novo_Artigo_Cientifico"
             app:destination="@id/AdiciomarArtigoCientificoFragment" />
     </fragment>
     <fragment

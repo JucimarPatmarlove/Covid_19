@@ -18,6 +18,7 @@ public class Bem2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bem2);
+
     }
 
     public void calcularSi(View view) {
@@ -43,11 +44,12 @@ public class Bem2Activity extends AppCompatActivity {
     }
     public void Acerca (View view){
 
-        Intent intent = new Intent(this,ListaArtigoCientifico.class);
+        Intent intent = new Intent(this, ListaArtigoCientificoActivity.class);
 
 
         startActivity(intent);
 
     }
+
 
 }

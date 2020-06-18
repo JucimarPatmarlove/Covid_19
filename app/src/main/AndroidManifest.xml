@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ListaArtigoCientifico"
+            android:name=".ListaArtigoCientificoActivity"
             android:label="@string/title_activity_lista_art_cint"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Bem2Activity" />

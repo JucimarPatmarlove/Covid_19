@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 public class ListaArtigoCientificoFragment extends Fragment {
@@ -23,12 +24,30 @@ public class ListaArtigoCientificoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-      /*  view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.buttonNovo).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(ListaArtigoCientificoFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+            public void onClick(View v) {
+               novoArtigoCientifico();
             }
-        });*/
+        });
+        
+        view.findViewById(R.id.buttonAlterar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alterarArtigoCientifico();
+            }
+        });
+
+
+    }
+
+    private void alterarArtigoCientifico() {
+        NavController navController = NavHostFragment.findNavController(ListaArtigoCientificoFragment.this);
+        navController.navigate(R.id.action_alterarArtigoCientificoFragment_to_ListaArtigoCientificoFragment);
+    }
+
+    private void novoArtigoCientifico() {
+        NavController navController = NavHostFragment.findNavController(ListaArtigoCientificoFragment.this);
+        navController.navigate(R.id.action_Novo_Artigo_Cientifico);
     }
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 public class AdicionarArtigoCientificoFragment extends Fragment {
@@ -23,12 +24,17 @@ public class AdicionarArtigoCientificoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        /*view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.buttonCancelar).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(AdicionarArtigoCientificoFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
+            public void onClick(View v) {
+                CancelarArtigoCientifico();
             }
-        });*/
+        });
+
+    }
+
+    private void CancelarArtigoCientifico() {
+        NavController navController = NavHostFragment.findNavController(AdicionarArtigoCientificoFragment.this);
+        navController.navigate(R.id.action_NovoArtigoCientifico_to_ListaArtigoCientifico);
     }
 }

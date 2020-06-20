@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_Novo_Artigo_Cientifico"
             app:destination="@id/AdiciomarArtigoCientificoFragment" />
+        <action
+            android:id="@+id/action_ListaArtigoCientificoFragment_to_alterarArtigoCientificoFragment"
+            app:destination="@id/alterarArtigoCientificoFragment" />
     </fragment>
     <fragment
         android:id="@+id/AdiciomarArtigoCientificoFragment"
@@ -24,5 +27,18 @@
         <action
             android:id="@+id/action_NovoArtigoCientifico_to_ListaArtigoCientifico"
             app:destination="@id/ListaArtigoCientificoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/alterarArtigoCientificoFragment"
+        android:name="pt.ipg.covid_19.AlterarArtigoCientificoFragment"
+        android:label="fragment_alterar_artigo_cientifico"
+        tools:layout="@layout/fragment_alterar_artigo_cientifico" >
+        <action
+            android:id="@+id/action_alterarArtigoCientificoFragment_to_ListaArtigoCientificoFragment"
+            app:destination="@id/ListaArtigoCientificoFragment" />
+        <argument
+            android:name="IdArtigoCientificoFragment"
+            app:argType="integer"
+            android:defaultValue="-1" />
     </fragment>
 </navigation>

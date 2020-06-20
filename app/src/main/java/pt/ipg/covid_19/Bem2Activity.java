@@ -44,7 +44,7 @@ public class Bem2Activity extends AppCompatActivity {
     }
     public void Acerca (View view){
 
-        Intent intent = new Intent(this, ListaArtigoCientificoActivity.class);
+        Intent intent = new Intent(this, ArtigoCientificoActivity.class);
 
 
         startActivity(intent);

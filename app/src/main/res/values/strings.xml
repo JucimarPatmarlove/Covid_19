@@ -29,4 +29,10 @@
     <string name="voltar">Voltar</string>
     <string name="mantenha_se_sa_davel">Mantenha-se saúdavel</string>
     <string name="acerca_de_covid_19">Acerca de COVID-19</string>
+    <string name="inserir">Inserir</string>
+    <string name="alterar">Alterar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="cancelar">Cancelar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

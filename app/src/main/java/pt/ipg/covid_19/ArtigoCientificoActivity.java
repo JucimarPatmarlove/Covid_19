@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import android.view.View;
 
-public class ListaArtigoCientificoActivity extends AppCompatActivity {
+public class ArtigoCientificoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

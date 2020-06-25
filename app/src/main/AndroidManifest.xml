@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ArtigoCientificoActivity"
-            android:label="@string/title_activity_lista_art_cint"
+            android:label="@string/title_activity_lista_artigo_cientifico"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Bem2Activity" />
         <activity android:name=".MalActivity" />

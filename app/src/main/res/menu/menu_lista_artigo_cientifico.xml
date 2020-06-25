@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="pt.ipg.livros.MainActivity">
+    <item
+        android:id="@+id/action_inserir_artigo_cientifico"
+        android:orderInCategory="100"
+        android:title="Inserir"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_alterar_artigo_cientifico"
+        android:orderInCategory="101"
+        android:title="Alterar"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_eliminar_artigo_cientifico"
+        android:orderInCategory="102"
+        android:title="Eliminar"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="103"
+        app:showAsAction="never"
+        android:title="TODO" />
+</menu>

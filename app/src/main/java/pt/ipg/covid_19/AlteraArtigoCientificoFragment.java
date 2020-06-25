@@ -1,8 +1,8 @@
 package pt.ipg.covid_19;
 
 import android.content.Context;
-import android.content.CursorLoader;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,24 +18,42 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.snackbar.Snackbar;
 
-public class AdicionarArtigoCientificoFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link AlteraArtigoCientificoFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class AlteraArtigoCientificoFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor>{
     public static final int ID_CURSOR_LOADER_CATEGORIAS = 0;
+
     private EditText editTextTitulo;
     private Spinner spinnerCategoria;
+    private ArtigoCientifico artigoCientifico;
+    private boolean categoriasCarregadas = false;
+    private boolean categoriaAtualizada = false;
+
+    public AlteraArtigoCientificoFragment() {
+        // Required empty public constructor
+    }
 
     @Override
-    public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_adicionar_artigo_cientifico, container, false);
+        return inflater.inflate(R.layout.fragment_alterar_artigo_cientifico, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -45,33 +63,78 @@ public class AdicionarArtigoCientificoFragment extends Fragment implements Loade
 
         ArtigoCientificoActivity activity = (ArtigoCientificoActivity) getActivity();
         activity.setFragmentActual(this);
-        activity.setMenuActual(R.menu.menu_inserir_artigo_cientifico);
+
+        activity.setMenuActual(R.menu.menu_alterar_artigo_cientifico);
 
         editTextTitulo = (EditText) view.findViewById(R.id.editTextTitulo);
         spinnerCategoria = (Spinner) view.findViewById(R.id.spinnerCategoria);
 
         mostraDadosSpinnerCategorias(null);
 
+        artigoCientifico = activity.getArtigoCientifico();
+        editTextTitulo.setText(artigoCientifico.getTitulo());
+
         LoaderManager.getInstance(this).initLoader(ID_CURSOR_LOADER_CATEGORIAS, null, this);
 
+        actualizaCategoriaSelecionada();
     }
 
-    private void mostraDadosSpinnerCategorias(Cursor data) {
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                getContext(),
-                android.R.layout.simple_list_item_1,
-                data,
-                new String[]{BdTableCategorias.CAMPO_DESCRICAO},
-                new int[]{android.R.id.text1}
-        );
+    private void actualizaCategoriaSelecionada() {
+        if (!categoriasCarregadas) return;
+        if (categoriaAtualizada) return;
 
-        spinnerCategoria.setAdapter(adapter);
+        long idCategoria = artigoCientifico.getIdCategoria();
+
+        for (int i= 0; i < spinnerCategoria.getCount(); i++) {
+            if (spinnerCategoria.getItemIdAtPosition(i) == idCategoria) {
+                spinnerCategoria.setSelection(i, true);
+                break;
+            }
+        }
+
+        categoriaAtualizada = true;
     }
 
     public void cancelar() {
-        NavController navController = NavHostFragment.findNavController(AdicionarArtigoCientificoFragment.this);
-        navController.navigate(R.id.action_NovoArtigoCientifico_to_ListaArtigoCientifico);
+        NavController navController = NavHostFragment.findNavController(AlteraArtigoCientificoFragment.this);
+        navController.navigate(R.id.action_alterarArtigoCientificoFragment_to_ListaArtigoCientificoFragment);
     }
+
+    public void guardar() {
+        String titulo = editTextTitulo.getText().toString();
+
+        if (titulo.length() == 0) {
+            editTextTitulo.setError("Preencha o título");
+            editTextTitulo.requestFocus();
+            return;
+        }
+
+        long idCategoria = spinnerCategoria.getSelectedItemId();
+
+        ArtigoCientificoActivity activity = (ArtigoCientificoActivity) getActivity();
+
+        ArtigoCientifico artigoCientifico = activity.getArtigoCientifico();
+
+        artigoCientifico.setTitulo(titulo);
+        artigoCientifico.setIdCategoria(idCategoria);
+
+        try {
+            Uri enderecoLivro = Uri.withAppendedPath(ArtigoCientificoContentProvider.ENDERECO_LIVROS, String.valueOf(artigoCientifico.getId()));
+
+            int registos = getActivity().getContentResolver().update(enderecoLivro, Converte.ArtigoCientificoToContentValues(artigoCientifico), null, null);
+
+            if (registos == 1) {
+                Toast.makeText(getContext(), "Artigo Cientifico guardado com sucesso", Toast.LENGTH_SHORT).show();
+                NavController navController = NavHostFragment.findNavController(AlteraArtigoCientificoFragment.this);
+                navController.navigate(R.id.action_alterarArtigoCientificoFragment_to_ListaArtigoCientificoFragment);
+                return;
+            }
+        } catch (Exception e) {
+        }
+
+        Snackbar.make(editTextTitulo, "Erro: Não foi possível alterar o Artigo Cientifico", Snackbar.LENGTH_INDEFINITE).show();
+    }
+
 
     /**
      * Instantiate and return a new Loader for the given ID.
@@ -85,7 +148,7 @@ public class AdicionarArtigoCientificoFragment extends Fragment implements Loade
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
-        return new androidx.loader.content.CursorLoader(getContext(), ArtigoCientificoContentProvider.ENDERECO_CATEGORIAS, BdTableCategorias.TODOS_CAMPOS, null, null, BdTableCategorias.CAMPO_DESCRICAO);
+        return new CursorLoader(getContext(), ArtigoCientificoContentProvider.ENDERECO_CATEGORIAS, BdTableCategorias.TODOS_CAMPOS, null, null, BdTableCategorias.CAMPO_DESCRICAO);
     }
 
     /**
@@ -132,6 +195,8 @@ public class AdicionarArtigoCientificoFragment extends Fragment implements Loade
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
         mostraDadosSpinnerCategorias(data);
+        categoriasCarregadas = true;
+        actualizaCategoriaSelecionada();
     }
 
     /**
@@ -148,28 +213,15 @@ public class AdicionarArtigoCientificoFragment extends Fragment implements Loade
         mostraDadosSpinnerCategorias(null);
     }
 
-    public void guardar() {
-        String titulo = editTextTitulo.getText().toString();
+    private void mostraDadosSpinnerCategorias(Cursor data) {
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                getContext(),
+                android.R.layout.simple_list_item_1,
+                data,
+                new String[]{BdTableCategorias.CAMPO_DESCRICAO},
+                new int[]{android.R.id.text1}
+        );
 
-        if (titulo.length() == 0) {
-            editTextTitulo.setError("Preencha o título");
-            editTextTitulo.requestFocus();
-            return;
-        }
-
-        long idCategoria = spinnerCategoria.getSelectedItemId();
-
-        ArtigoCientifico artigoCientifico = new ArtigoCientifico();
-        artigoCientifico.setTitulo(titulo);
-        artigoCientifico.setIdCategoria(idCategoria);
-
-        try {
-            getActivity().getContentResolver().insert(ArtigoCientificoContentProvider.ENDERECO_LIVROS, Converte.cursorToArtigoCientifico(artigoCientifico));
-            Toast.makeText(getContext(), "Artigo Cientifico adicionado com sucesso", Toast.LENGTH_SHORT).show();
-            NavController navController = NavHostFragment.findNavController(AdicionarArtigoCientificoFragment.this);
-            navController.navigate(R.id.action_NovoArtigoCientifico_to_ListaArtigoCientifico);
-        } catch (Exception e) {
-            Snackbar.make(editTextTitulo, "Erro: Não foi possível criar o Artigo Cientifico", Snackbar.LENGTH_INDEFINITE).show();
-        }
+        spinnerCategoria.setAdapter(adapter);
     }
 }

@@ -15,15 +15,15 @@
     <string name="calcular">Calcular</string>
     <string name="resultado">Resultado</string>
     <string name="analizador_do_seu_sistema_imonologico">Analizador do seu sistema imonologico</string>
-    <string name="title_activity_lista_art_cint">ListaArtCint</string>
+    <string name="title_activity_lista_artigo_cientifico" translatable="false">ListaArtigoCientifico</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" translatable="false">Second Fragment</string>
+    <string name="next" translatable="false">Next</string>
+    <string name="previous" translatable="false">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_first_fragment" translatable="false">Hello first fragment</string>
+    <string name="hello_second_fragment" translatable="false">Hello second fragment. Arg: %1$s</string>
     <string name="dicas_de_alimenta_o">Dicas de Alimentação</string>
     <string name="estilo_de_vida">Estilo de Vida</string>
     <string name="voltar">Voltar</string>
@@ -34,5 +34,13 @@
     <string name="eliminar">Eliminar</string>
     <string name="cancelar">Cancelar</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="textviewTitulo">textviewTitulo</string>
+    <string name="textviewCategoria">textviewCategoria</string>
+    <string name="lista_de_artigos_cientificos">Lista de Artigos Cientificos</string>
+    <string name="buttonNovo">Novo</string>
+    <string name="buttonAlterar">Alterar</string>
+    <string name="categoria">Categoria</string>
+    <string name="t_titulo">Título</string>
+
 </resources>

@@ -6,11 +6,13 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -21,6 +23,7 @@ import static org.junit.Assert.assertTrue;
 @RunWith(AndroidJUnit4.class)
 public class BdArtigoCientificoTest {
     @Before
+    @After
     public void apagaBaseDados() {
         getTargetContext().deleteDatabase(BdArtigoCientificoOpenHelper.NOME_BASE_DADOS);
     }
@@ -39,5 +42,11 @@ public class BdArtigoCientificoTest {
 
     private Context getTargetContext() {
         return InstrumentationRegistry.getInstrumentation().getTargetContext();
+    }
+    private long insereCategoria(BdTableCategorias tabelaCategorias, Categoria categoria) {
+        long id = tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
+        assertNotEquals(-1, id);
+
+        return id;
     }
 }

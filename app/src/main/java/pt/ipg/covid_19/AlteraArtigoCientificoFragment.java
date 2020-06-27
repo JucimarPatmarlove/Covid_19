@@ -119,7 +119,7 @@ public class AlteraArtigoCientificoFragment extends Fragment implements LoaderMa
         artigoCientifico.setIdCategoria(idCategoria);
 
         try {
-            Uri enderecoLivro = Uri.withAppendedPath(ArtigoCientificoContentProvider.ENDERECO_LIVROS, String.valueOf(artigoCientifico.getId()));
+            Uri enderecoLivro = Uri.withAppendedPath(ArtigoCientificoContentProvider.ENDERECO_ArtigoCientifico, String.valueOf(artigoCientifico.getId()));
 
             int registos = getActivity().getContentResolver().update(enderecoLivro, Converte.ArtigoCientificoToContentValues(artigoCientifico), null, null);
 

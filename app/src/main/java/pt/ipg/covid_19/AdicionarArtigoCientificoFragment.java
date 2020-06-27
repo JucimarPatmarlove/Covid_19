@@ -164,7 +164,7 @@ public class AdicionarArtigoCientificoFragment extends Fragment implements Loade
         artigoCientifico.setIdCategoria(idCategoria);
 
         try {
-            getActivity().getContentResolver().insert(ArtigoCientificoContentProvider.ENDERECO_LIVROS, Converte.cursorToArtigoCientifico(artigoCientifico));
+            getActivity().getContentResolver().insert(ArtigoCientificoContentProvider.ENDERECO_ArtigoCientifico, Converte.cursorToArtigoCientifico(artigoCientifico));
             Toast.makeText(getContext(), "Artigo Cientifico adicionado com sucesso", Toast.LENGTH_SHORT).show();
             NavController navController = NavHostFragment.findNavController(AdicionarArtigoCientificoFragment.this);
             navController.navigate(R.id.action_NovoArtigoCientifico_to_ListaArtigoCientifico);

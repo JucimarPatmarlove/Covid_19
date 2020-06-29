@@ -85,7 +85,7 @@ public class AdicionarArtigoCientificoFragment extends Fragment implements Loade
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
-        return new androidx.loader.content.CursorLoader(getContext(), ArtigoCientificoContentProvider.ENDERECO_CATEGORIAS, BdTableCategorias.TODOS_CAMPOS, null, null, BdTableCategorias.CAMPO_DESCRICAO);
+        return new androidx.loader.content.CursorLoader(getContext(),ArtigoCientificoContentProvider.ENDERECO_CATEGORIAS, BdTableCategorias.TODOS_CAMPOS, null, null, BdTableCategorias.CAMPO_DESCRICAO);
     }
 
     /**
@@ -164,7 +164,7 @@ public class AdicionarArtigoCientificoFragment extends Fragment implements Loade
         artigoCientifico.setIdCategoria(idCategoria);
 
         try {
-            getActivity().getContentResolver().insert(ArtigoCientificoContentProvider.ENDERECO_ArtigoCientifico, Converte.cursorToArtigoCientifico(artigoCientifico));
+            getActivity().getContentResolver().insert(ArtigoCientificoContentProvider.ENDERECO_ArtigoCientifico, Converte.artigoCientificoToContentValues(artigoCientifico));
             Toast.makeText(getContext(), "Artigo Cientifico adicionado com sucesso", Toast.LENGTH_SHORT).show();
             NavController navController = NavHostFragment.findNavController(AdicionarArtigoCientificoFragment.this);
             navController.navigate(R.id.action_NovoArtigoCientifico_to_ListaArtigoCientifico);

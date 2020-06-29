@@ -10,6 +10,7 @@ public class BdArtigoCientificoOpenHelper extends SQLiteOpenHelper {
 
     public static final String NOME_BASE_DADOS = "ArtigoCientifico.bd";
     private static final int VERSAO_BASE_DADOS = 1;
+    private static final boolean DESENVOLVIMENTO = true;
 
     /**
      * Create a helper object to create, open, and/or manage a database.
@@ -18,8 +19,7 @@ public class BdArtigoCientificoOpenHelper extends SQLiteOpenHelper {
      * {@link #getReadableDatabase} is called.
      *
      * @param context to use for locating paths to the the database
-     * @param version number of the database (starting at 1); if the database is older,
-     */
+      */
     public BdArtigoCientificoOpenHelper(@Nullable Context context) {
         super(context, NOME_BASE_DADOS, null, VERSAO_BASE_DADOS);
     }
@@ -37,6 +37,51 @@ public class BdArtigoCientificoOpenHelper extends SQLiteOpenHelper {
 
         BdTableArtigoCientifico tableArtigoCientifico = new BdTableArtigoCientifico(db);
         tableArtigoCientifico.cria();
+
+        if (DESENVOLVIMENTO) {
+            seedData(db);
+        }
+    }
+    private void seedData(SQLiteDatabase db) {
+        BdTableCategorias tabelaCategorias = new BdTableCategorias(db);
+
+        Categoria categoria = new Categoria();
+        categoria.setDescricao("Ação");
+        long idCatAcao = tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
+
+        categoria = new Categoria();
+        categoria.setDescricao("Terror");
+        long idCatTerror = tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
+
+        categoria = new Categoria();
+        categoria.setDescricao("Mistério");
+        long idCatMisterio = tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
+
+        categoria = new Categoria();
+        categoria.setDescricao("Sci-fi");
+        tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
+
+        BdTableArtigoCientifico tabelaArtigoCientifico = new BdTableArtigoCientifico(db);
+
+        ArtigoCientifico artigoCientifico = new ArtigoCientifico();
+        artigoCientifico.setTitulo("Lua vermelha");
+        artigoCientifico.setIdCategoria(idCatAcao);
+        tabelaArtigoCientifico.insert(Converte.artigoCientificoToContentValues(artigoCientifico));
+
+        artigoCientifico = new ArtigoCientifico();
+        artigoCientifico.setTitulo("O sobrevivente");
+        artigoCientifico.setIdCategoria(idCatAcao);
+        tabelaArtigoCientifico.insert(Converte.artigoCientificoToContentValues(artigoCientifico));
+
+        artigoCientifico = new ArtigoCientifico();
+        artigoCientifico.setTitulo("O intruso");
+        artigoCientifico.setIdCategoria(idCatTerror);
+        tabelaArtigoCientifico.insert(Converte.artigoCientificoToContentValues(artigoCientifico));
+
+        artigoCientifico = new ArtigoCientifico();
+        artigoCientifico.setTitulo("O mistério do quarto secreto");
+        artigoCientifico.setIdCategoria(idCatMisterio);
+        tabelaArtigoCientifico.insert(Converte.artigoCientificoToContentValues(artigoCientifico));
     }
 
     /**

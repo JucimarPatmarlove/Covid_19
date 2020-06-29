@@ -121,7 +121,7 @@ public class AlteraArtigoCientificoFragment extends Fragment implements LoaderMa
         try {
             Uri enderecoLivro = Uri.withAppendedPath(ArtigoCientificoContentProvider.ENDERECO_ArtigoCientifico, String.valueOf(artigoCientifico.getId()));
 
-            int registos = getActivity().getContentResolver().update(enderecoLivro, Converte.ArtigoCientificoToContentValues(artigoCientifico), null, null);
+            int registos = getActivity().getContentResolver().update(enderecoLivro, Converte.artigoCientificoToContentValues(artigoCientifico), null, null);
 
             if (registos == 1) {
                 Toast.makeText(getContext(), "Artigo Cientifico guardado com sucesso", Toast.LENGTH_SHORT).show();

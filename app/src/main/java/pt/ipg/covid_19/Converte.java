@@ -21,14 +21,6 @@ public class Converte {
         return categoria;
     }
 
-    public static ContentValues ArtigoCientificoToContentValues(ArtigoCientifico artigoCientifico) {
-        ContentValues valores = new ContentValues();
-
-        valores.put(BdTableArtigoCientifico.CAMPO_TITULO, artigoCientifico);
-        valores.put(BdTableArtigoCientifico.CAMPO_ID_CATEGORIA, artigoCientifico.getIdCategoria());
-
-        return valores;
-    }
 
     public static ArtigoCientifico contentValuesToArtigoCientifico(ContentValues valores) {
         ArtigoCientifico artigoCientifico = new ArtigoCientifico();
@@ -50,5 +42,14 @@ public class Converte {
         artigoCientifico.setCategoria(cursor.getString(cursor.getColumnIndex(BdTableArtigoCientifico.CAMPO_CATEGORIA)));
 
         return artigoCientifico;
+    }
+
+    public static ContentValues artigoCientificoToContentValues(ArtigoCientifico artigoCientifico) {
+        ContentValues valores = new ContentValues();
+
+        valores.put(BdTableArtigoCientifico.CAMPO_TITULO, artigoCientifico.getTitulo());
+        valores.put(BdTableArtigoCientifico.CAMPO_ID_CATEGORIA, artigoCientifico.getIdCategoria());
+
+        return valores;
     }
 }

@@ -33,19 +33,11 @@ public class ArtigoCientificoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_lista_artigo_cientifico);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
 
-    public void artigoCientificoAlterado(ArtigoCientifico artigoCientifico) {
-        this.artigoCientifico = artigoCientifico;
-
-        boolean mostraEditarEliminar = (artigoCientifico != null);
-
-        menu.findItem(R.id.action_alterar_artigo_cientifico).setVisible(mostraEditarEliminar);
-        menu.findItem(R.id.action_eliminar_artigo_cientifico).setVisible(mostraEditarEliminar);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

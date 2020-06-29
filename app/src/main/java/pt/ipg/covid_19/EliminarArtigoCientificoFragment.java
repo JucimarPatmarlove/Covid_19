@@ -106,7 +106,7 @@ public class EliminarArtigoCientificoFragment extends Fragment {
 
     private void confirmaEliminar() {
         try {
-            Uri enderecoLivro = Uri.withAppendedPath(ArtigoCientificoContentProvider.ENDERECO_LIVROS, String.valueOf(artigoCientifico.getId()));
+            Uri enderecoLivro = Uri.withAppendedPath(ArtigoCientificoContentProvider.ENDERECO_ArtigoCientifico, String.valueOf(artigoCientifico.getId()));
 
             int apagados = getActivity().getContentResolver().delete(enderecoLivro, null, null);
 

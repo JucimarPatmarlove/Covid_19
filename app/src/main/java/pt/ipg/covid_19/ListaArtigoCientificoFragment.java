@@ -44,20 +44,20 @@ public class ListaArtigoCientificoFragment extends Fragment implements LoaderMan
         activity.setFragmentActual(this);
         activity.setMenuActual(R.menu.menu_lista_artigo_cientifico);
 
-        RecyclerView recyclerViewArtigoCientifico = (RecyclerView) view.findViewById(R.id.recyclerViewArtigoCientifico);
-        adaptadorArtigoCientifico = new AdaptadorArtigoCientifico(context);
-        recyclerViewArtigoCientifico.setAdapter(adaptadorArtigoCientifico);
-        recyclerViewArtigoCientifico.setLayoutManager(new LinearLayoutManager(context));
+        //RecyclerView recyclerViewArtigoCientifico = (RecyclerView) view.findViewById(R.id.recyclerViewArtigoCientifico);
+        //adaptadorArtigoCientifico = new AdaptadorArtigoCientifico(context);
+        //recyclerViewArtigoCientifico.setAdapter(adaptadorArtigoCientifico);
+        //recyclerViewArtigoCientifico.setLayoutManager(new LinearLayoutManager(context));
 
-        adaptadorArtigoCientifico.setCursor(null);
+        //adaptadorArtigoCientifico.setCursor(null);
 
-        LoaderManager.getInstance(this).initLoader(ID_CURSOR_LOADER_ARTIGO_CIENTIFICO, null, this);
+        //LoaderManager.getInstance(this).initLoader(ID_CURSOR_LOADER_ARTIGO_CIENTIFICO, null, this);
 
     }
 
     public void alterarArtigoCientifico() {
         NavController navController = NavHostFragment.findNavController(ListaArtigoCientificoFragment.this);
-        navController.navigate(R.id.action_alterarArtigoCientificoFragment_to_ListaArtigoCientificoFragment);
+        navController.navigate(R.id.alterarArtigoCientificoFragment);
     }
 
     public void novoArtigoCientifico() {

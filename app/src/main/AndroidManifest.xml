@@ -9,10 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".EstiloDeVida"></activity>
+        <activity android:name=".EstrategiaAlimentacao2" />
+        <activity android:name=".DicaAlimentacao2" />
         <activity
             android:name=".ArtigoCientificoActivity"
             android:label="@string/title_activity_lista_artigo_cientifico"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Bem2Activity" />
         <activity android:name=".MalActivity" />
         <activity android:name=".MainActivity">

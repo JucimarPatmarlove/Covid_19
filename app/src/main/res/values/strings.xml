@@ -42,5 +42,6 @@
     <string name="buttonAlterar">Alterar</string>
     <string name="categoria">Categoria</string>
     <string name="t_titulo">Título</string>
+    <string name="action_settings">settings</string>
 
 </resources>

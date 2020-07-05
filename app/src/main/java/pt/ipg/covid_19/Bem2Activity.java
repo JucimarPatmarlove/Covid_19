@@ -51,5 +51,28 @@ public class Bem2Activity extends AppCompatActivity {
 
     }
 
+    public void Dicas (View view){
 
+        Intent intent = new Intent(this, DicaAlimentacao2.class);
+
+
+        startActivity(intent);
+
+    }
+
+    public void Msaudavel (View view){
+
+        Intent intent = new Intent(this,  EstrategiaAlimentacao2.class);
+
+
+        startActivity(intent);
+
+    }
+
+    public void Estilo(View view) {
+        Intent intent = new Intent(this, EstiloDeVida.class);
+
+
+        startActivity(intent);
+    }
 }

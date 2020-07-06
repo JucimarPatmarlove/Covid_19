@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -14,17 +15,21 @@ public class Bem2Activity extends AppCompatActivity {
     private EditText editTextAltura;
     private TextView textViewResultado;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bem2);
 
+
     }
 
     public void calcularSi(View view) {
 
+        Button buttonSi = (Button) findViewById(R.id.buttonSi);
         double peso = Double.parseDouble(editTextPeso.getText().toString());
         double altura = Double.parseDouble(editTextAltura.getText().toString());
+
 
         //resultado = peso/(altura*altura)
         double resultado = peso / (altura * altura);
@@ -41,6 +46,7 @@ public class Bem2Activity extends AppCompatActivity {
             textViewResultado.setText("Obesidade severa, Si =" + resultado);
 
         }
+
     }
     public void Acerca (View view){
 

@@ -46,41 +46,41 @@ public class BdArtigoCientificoOpenHelper extends SQLiteOpenHelper {
         BdTableCategorias tabelaCategorias = new BdTableCategorias(db);
 
         Categoria categoria = new Categoria();
-        categoria.setDescricao("Ação");
-        long idCatAcao = tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
+        categoria.setDescricao("Acadêmico");
+        long idCatAcad = tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
 
         categoria = new Categoria();
-        categoria.setDescricao("Terror");
-        long idCatTerror = tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
+        categoria.setDescricao("Estudo de Caso");
+        long idCatEstudo = tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
 
         categoria = new Categoria();
-        categoria.setDescricao("Mistério");
-        long idCatMisterio = tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
+        categoria.setDescricao("Revisão Bibliométrica");
+        long idCatRevisao = tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
 
         categoria = new Categoria();
-        categoria.setDescricao("Sci-fi");
+        categoria.setDescricao("Survey");
         tabelaCategorias.insert(Converte.categoriaToContentValues(categoria));
 
         BdTableArtigoCientifico tabelaArtigoCientifico = new BdTableArtigoCientifico(db);
 
         ArtigoCientifico artigoCientifico = new ArtigoCientifico();
-        artigoCientifico.setTitulo("Lua vermelha");
-        artigoCientifico.setIdCategoria(idCatAcao);
+        artigoCientifico.setTitulo("Víros Matador");
+        artigoCientifico.setIdCategoria(idCatAcad);
         tabelaArtigoCientifico.insert(Converte.artigoCientificoToContentValues(artigoCientifico));
 
         artigoCientifico = new ArtigoCientifico();
-        artigoCientifico.setTitulo("O sobrevivente");
-        artigoCientifico.setIdCategoria(idCatAcao);
+        artigoCientifico.setTitulo("Estes são os maiores quebra-cabeças científicos sobre a pandemia");
+        artigoCientifico.setIdCategoria(idCatAcad);
         tabelaArtigoCientifico.insert(Converte.artigoCientificoToContentValues(artigoCientifico));
 
         artigoCientifico = new ArtigoCientifico();
-        artigoCientifico.setTitulo("O intruso");
-        artigoCientifico.setIdCategoria(idCatTerror);
+        artigoCientifico.setTitulo("Não sabemos como a epidemia começou");
+        artigoCientifico.setIdCategoria(idCatEstudo);
         tabelaArtigoCientifico.insert(Converte.artigoCientificoToContentValues(artigoCientifico));
 
         artigoCientifico = new ArtigoCientifico();
-        artigoCientifico.setTitulo("O mistério do quarto secreto");
-        artigoCientifico.setIdCategoria(idCatMisterio);
+        artigoCientifico.setTitulo("A mortalidade ainda não é conhecida com precisão");
+        artigoCientifico.setIdCategoria(idCatRevisao);
         tabelaArtigoCientifico.insert(Converte.artigoCientificoToContentValues(artigoCientifico));
     }
 

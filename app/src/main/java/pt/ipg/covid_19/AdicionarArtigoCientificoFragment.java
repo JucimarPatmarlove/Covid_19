@@ -1,7 +1,7 @@
 package pt.ipg.covid_19;
 
 import android.content.Context;
-import android.content.CursorLoader;
+
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,6 +23,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.snackbar.Snackbar;
+import androidx.loader.content.CursorLoader;
 
 public class AdicionarArtigoCientificoFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     public static final int ID_CURSOR_LOADER_CATEGORIAS = 0;
@@ -85,7 +86,7 @@ public class AdicionarArtigoCientificoFragment extends Fragment implements Loade
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
-        return new androidx.loader.content.CursorLoader(getContext(),ArtigoCientificoContentProvider.ENDERECO_CATEGORIAS, BdTableCategorias.TODOS_CAMPOS, null, null, BdTableCategorias.CAMPO_DESCRICAO);
+        return new CursorLoader(getContext(),ArtigoCientificoContentProvider.ENDERECO_CATEGORIAS, BdTableCategorias.TODOS_CAMPOS, null, null, BdTableCategorias.CAMPO_DESCRICAO);
     }
 
     /**

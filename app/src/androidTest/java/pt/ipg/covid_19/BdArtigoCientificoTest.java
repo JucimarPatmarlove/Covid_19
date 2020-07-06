@@ -83,7 +83,7 @@ public class BdArtigoCientificoTest {
 
         BdTableCategorias tabelaCategorias = new BdTableCategorias(bdArtigoCientifico);
 
-        insereCategoria(tabelaCategorias, "Ação");
+        insereCategoria(tabelaCategorias, "Acadêmico");
 
         bdArtigoCientifico.close();
     }
@@ -101,7 +101,7 @@ public class BdArtigoCientificoTest {
         int registos = cursor.getCount();
         cursor.close();
 
-        insereCategoria(tabelaCategorias, "Sci-fi");
+        insereCategoria(tabelaCategorias, "Survey");
 
         cursor = tabelaCategorias.query(BdTableCategorias.TODOS_CAMPOS, null, null, null, null, null);
         assertEquals(registos + 1, cursor.getCount());
@@ -120,11 +120,11 @@ public class BdArtigoCientificoTest {
         BdTableCategorias tabelaCategorias = new BdTableCategorias(bdArtigoCientifico);
 
         Categoria categoria = new Categoria();
-        categoria.setDescricao("Romanc");
+        categoria.setDescricao("Revisão Bibliométrica");
 
         long id = insereCategoria(tabelaCategorias, categoria);
 
-        categoria.setDescricao("Romance");
+        categoria.setDescricao("Estudo de Caso");
         int registosAfetados = tabelaCategorias.update(Converte.categoriaToContentValues(categoria), BdTableCategorias._ID + "=?", new String[]{String.valueOf(id)});
         assertEquals(1, registosAfetados);
 
@@ -155,7 +155,7 @@ public class BdArtigoCientificoTest {
         BdArtigoCientificoOpenHelper openHelper = new BdArtigoCientificoOpenHelper(appContext);
         SQLiteDatabase bdArtigoCientifico = openHelper.getWritableDatabase();
 
-        insereArtigoCientifico(bdArtigoCientifico, "O Intruso", "Terror");
+        insereArtigoCientifico(bdArtigoCientifico, "Estudo de Caso", "Acadêmico");
 
         bdArtigoCientifico.close();
     }
@@ -173,7 +173,7 @@ public class BdArtigoCientificoTest {
         int registos = cursor.getCount();
         cursor.close();
 
-        insereArtigoCientifico(bdArtigoCientifico, "O silêncio dos inocentes", "Thriller");
+        insereArtigoCientifico(bdArtigoCientifico, "Não sabemos como a epidemia começou", "Survey");
 
         cursor = tabelaArtigoCientifico.query(BdTableArtigoCientifico.TODOS_CAMPOS, null, null, null, null, null);
         assertEquals(registos + 1, cursor.getCount());
@@ -189,7 +189,7 @@ public class BdArtigoCientificoTest {
         BdArtigoCientificoOpenHelper openHelper = new BdArtigoCientificoOpenHelper(appContext);
         SQLiteDatabase bdArtigoCientifico = openHelper.getWritableDatabase();
 
-        long idArtigoCientifico = insereArtigoCientifico(bdArtigoCientifico, "O silêncio dos inocentes", "Thriller");
+        long idArtigoCientifico = insereArtigoCientifico(bdArtigoCientifico, "Estes são os maiores quebra-cabeças científicos sobre a pandemia", "Acadêmico");
 
         BdTableArtigoCientifico tabelaArtigoCientifico = new BdTableArtigoCientifico(bdArtigoCientifico);
 
@@ -200,9 +200,9 @@ public class BdArtigoCientificoTest {
         ArtigoCientifico artigoCientifico = Converte.cursorToArtigoCientifico(cursor);
         cursor.close();
 
-        assertEquals("O silêncio dos inocentes", artigoCientifico.getTitulo());
+        assertEquals("Estes são os maiores quebra-cabeças científicos sobre a pandemia", artigoCientifico.getTitulo());
 
-        artigoCientifico.setTitulo("O mistério do quarto secreto");
+        artigoCientifico.setTitulo("A mortalidade ainda não é conhecida com precisão");
         int registosAfetados = tabelaArtigoCientifico.update(Converte.artigoCientificoToContentValues(artigoCientifico), BdTableArtigoCientifico.CAMPO_ID_COMPLETO + "=?", new String[]{String.valueOf(artigoCientifico.getId())});
         assertEquals(1, registosAfetados);
 
@@ -216,7 +216,7 @@ public class BdArtigoCientificoTest {
         BdArtigoCientificoOpenHelper openHelper = new BdArtigoCientificoOpenHelper(appContext);
         SQLiteDatabase bdArtigoCientifico = openHelper.getWritableDatabase();
 
-        long id = insereArtigoCientifico(bdArtigoCientifico, "O silêncio dos inocentes", "Thriller");
+        long id = insereArtigoCientifico(bdArtigoCientifico, "Estes são os maiores quebra-cabeças científicos sobre a pandemia", "Thriller");
 
         BdTableArtigoCientifico tabelaLivros = new BdTableArtigoCientifico(bdArtigoCientifico);
         int registosEliminados = tabelaLivros.delete(BdTableArtigoCientifico._ID + "=?", new String[]{String.valueOf(id)});

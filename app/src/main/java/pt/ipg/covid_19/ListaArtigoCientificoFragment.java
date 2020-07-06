@@ -1,7 +1,7 @@
 package pt.ipg.covid_19;
 
 import android.content.Context;
-import android.content.CursorLoader;
+
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,6 +19,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.loader.content.CursorLoader;
 
 public class ListaArtigoCientificoFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -44,14 +45,14 @@ public class ListaArtigoCientificoFragment extends Fragment implements LoaderMan
         activity.setFragmentActual(this);
         activity.setMenuActual(R.menu.menu_lista_artigo_cientifico);
 
-        //RecyclerView recyclerViewArtigoCientifico = (RecyclerView) view.findViewById(R.id.recyclerViewArtigoCientifico);
-        //adaptadorArtigoCientifico = new AdaptadorArtigoCientifico(context);
-        //recyclerViewArtigoCientifico.setAdapter(adaptadorArtigoCientifico);
-        //recyclerViewArtigoCientifico.setLayoutManager(new LinearLayoutManager(context));
+        RecyclerView recyclerViewArtigoCientifico = (RecyclerView) view.findViewById(R.id.recyclerViewArtigoCientifico);
+        adaptadorArtigoCientifico = new AdaptadorArtigoCientifico(context);
+        recyclerViewArtigoCientifico.setAdapter(adaptadorArtigoCientifico);
+        recyclerViewArtigoCientifico.setLayoutManager(new LinearLayoutManager(context));
 
-        //adaptadorArtigoCientifico.setCursor(null);
+        adaptadorArtigoCientifico.setCursor(null);
 
-        //LoaderManager.getInstance(this).initLoader(ID_CURSOR_LOADER_ARTIGO_CIENTIFICO, null, this);
+        LoaderManager.getInstance(this).initLoader(ID_CURSOR_LOADER_ARTIGO_CIENTIFICO, null, this);
 
     }
 
@@ -83,7 +84,8 @@ public class ListaArtigoCientificoFragment extends Fragment implements LoaderMan
     @NonNull
     @Override
     public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
-        return new androidx.loader.content.CursorLoader(getContext(), ArtigoCientificoContentProvider.ENDERECO_ArtigoCientifico, BdTableArtigoCientifico.TODOS_CAMPOS, null, null, BdTableArtigoCientifico.CAMPO_TITULO);
+
+        return new CursorLoader(getContext(), ArtigoCientificoContentProvider.ENDERECO_ArtigoCientifico, BdTableArtigoCientifico.TODOS_CAMPOS,null, null, BdTableArtigoCientifico.CAMPO_TITULO);
     }
 
     /**

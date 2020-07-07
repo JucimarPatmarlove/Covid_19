@@ -25,6 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+        <provider
+            android:authorities="pt.ipg.covid_19"
+            android:name=".ArtigoCientificoContentProvider"
+            android:exported="false"
+            />
 
+    </application>
+    
 </manifest>

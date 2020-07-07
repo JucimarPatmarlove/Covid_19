@@ -57,17 +57,7 @@ public class AdicionarArtigoCientificoFragment extends Fragment implements Loade
 
     }
 
-    private void mostraDadosSpinnerCategorias(Cursor data) {
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                getContext(),
-                android.R.layout.simple_list_item_1,
-                data,
-                new String[]{BdTableCategorias.CAMPO_DESCRICAO},
-                new int[]{android.R.id.text1}
-        );
 
-        spinnerCategoria.setAdapter(adapter);
-    }
 
     public void cancelar() {
         NavController navController = NavHostFragment.findNavController(AdicionarArtigoCientificoFragment.this);
@@ -147,6 +137,18 @@ public class AdicionarArtigoCientificoFragment extends Fragment implements Loade
     @Override
     public void onLoaderReset(@NonNull Loader<Cursor> loader) {
         mostraDadosSpinnerCategorias(null);
+    }
+
+    private void mostraDadosSpinnerCategorias(Cursor data) {
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                getContext(),
+                android.R.layout.simple_list_item_1,
+                data,
+                new String[]{BdTableCategorias.CAMPO_DESCRICAO},
+                new int[]{android.R.id.text1}
+        );
+
+        spinnerCategoria.setAdapter(adapter);
     }
 
     public void guardar() {
